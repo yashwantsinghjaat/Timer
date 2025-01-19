@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background" id="background"></div>
+
+    <div class="main-timer" id="main-timer">00:00:00</div>
+    <div class="content">
+        <input type="text" id="user-time" placeholder="Enter time (HH:MM:SS)" class="quick-timer-input" oninput="setMainTimer()">
+        <div>
+            <button class="button" onclick="startMainTimer()">Start</button>
+            <button class="button" onclick="stopMainTimer()">Stop</button>
+            <button class="button" onclick="resetMainTimer()">Reset</button>
+        </div>
+
+        <div class="card-container">
+
+            <!-- Stop watch Card -->
+            <div class="card">
+                <h2>Stop Watch</h2>
+                <div class="timer" id="stopwatch-display">00:00:00</div>
+                <button class="button" onclick="startStopwatch()">Start</button>
+                <button class="button" onclick="stopStopwatch()">Stop</button>
+                <button class="button" onclick="resetStopwatch()">Reset</button>
+            </div>            
+            
+            <!-- Break Timer Card -->
+            <div class="card">
+                <h2>Break Timer</h2>
+                <div id="timer-container">
+                    <div id="timer">05:00</div> <!-- Timer display -->
+                    <div id="task-suggestion"></div> <!-- Task suggestion -->
+                    <button class="button" onclick="startBreakTimer()">Start Timer</button>
+                    <button class="button" onclick="stopBreakTimer()">Stop Timer</button>
+                    <button class="button" onclick="resetBreakTimer()">Reset Timer</button>
+                </div>                           
+            </div>
+
+            <!-- Background Options Card -->
+            <div class="card">
+                <h2>Background Options</h2>
+                <input type="file" accept="image/*,video/*" id="upload-background" onchange="uploadBackground()">
+                <button class="button" onclick="stretchBackground(true)">Stretch</button>
+                <button class="button" onclick="stretchBackground(false)">Original</button>
+            </div>
+
+            <!-- Music Options Card -->
+            <div class="card">
+                <h2>Background Music</h2>
+                <input type="file" accept="audio/*" id="upload-music" onchange="uploadMusic()">
+                <button class="button" onclick="playMusic()">Play</button>
+                <button class="button" onclick="pauseMusic()">Pause</button>
+            </div>
+
+            <!-- Color Picker Card -->
+            <div class="card">
+                <h2>Change Timer Color</h2>
+                <input type="color" id="color-picker" class="color-picker" onchange="changeTimerColor()">
+            </div>
+
+            <!-- Weather Card -->
+            <div class="card">
+                <h2>Weather</h2>
+                <div class="weather" id="weather">Fetching weather...</div>
+            </div>
+
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
